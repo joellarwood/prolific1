@@ -1,0 +1,124 @@
+# Creation of final variables 
+
+##DASS
+#Depression subscale 
+mydata$Depression <- (mydata$DASS3_timepoint + mydata$DASS5_timepoint + mydata$DASS10_timepoint + mydata$DASS13_timepoint + mydata$DASS16_timepoint + mydata$DASS17_timepoint + mydata$DASS21_timepoint) * 2
+#Anxiety subscale 
+mydata$Anxiety <- (mydata$DASS2_timepoint + mydata$DASS4_timepoint + mydata$DASS7_timepoint + mydata$DASS9_timepoint + mydata$DASS15_timepoint + mydata$DASS19_timepoint + mydata$DASS20_timepoint) * 2 
+#Stress subscale 
+mydata$Stress <- (mydata$DASS1_timepoint + mydata$DASS6_timepoint + mydata$DASS8_timepoint + mydata$DASS11_timepoint + mydata$DASS12_timepoint + mydata$DASS14_timepoint + mydata$DASS18_timepoint) * 2 
+#Total 
+mydata$DASStotal <- mydata$Depression + mydata$Anxiety + mydata$Stress
+
+##Rumination 
+#Reverse scoring
+library(car)	
+mydata$RUM6r <- recode (RUM6, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)	
+mydata$RUM9r <- recode (RUM9, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)	
+mydata$RUM10r <- recode (RUM10, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)	
+
+#TOTAL 
+mydata$Rumination <- (mydata$RUM1 + mydata$RUM2 + mydata$RUM3 + mydata$RUM4 + mydata$RUM5 + mydata$RUM6r + mydata$RUM7 + mydata$RUM8 + mydata$RUM9r + mydata$RUM10r + mydata$RUM11 + mydata$RUM12)/12
+
+##TAS-20 
+#Reverse scoring 
+library(car)
+mydata$TAS4r_timepoint <- recode (TAS4_timepoint, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)
+mydata$TAS5r_timepoint <- recode (TAS5_timepoint, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)
+mydata$TAS10r_timepoint <- recode (TAS10_timepoint, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)
+mydata$TAS18r_timepoint <- recode (TAS18_timepoint, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)
+mydata$TAS19r_timepoint <- recode (TAS19_timepoint, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)
+
+#Difficulty Identifying Feelings
+mydata$TASDI_timepoint <- (mydata$TAS1_timepoint + mydata$TAS3_timepoint + mydata$TAS6_timepoint + mydata$TAS7 + mydata$TAS9 + mydata$TAS13 + mydata$TAS14) 
+
+#Difficulty Describing Feelings 
+mydata$TASDD_timepoint <- (mydata$TAS2_timepoint + mydata$TAS4_timepoint + mydata$TAS11_timepoint + mydata$TAS12_timepoint + mydata$TAS17_timepoint)
+
+#Externally Oriented thinking 
+mydata$TASEO_timepoint < - (mydata$TAS5_timepoint + mydata$TAS8_timepoint + mydata$TAS10_timepoint + mydata$TAS15_timepoint + mydata$TAS16_timepoint + mydata$TAS18_timepoint + mydata$TAS19_timepoint + mydata$TAS20_timepoint)
+
+#TAS Total 
+TAStotal <- (mydata$TASDD_timepoint + mydata$TASDI_timepoint + mydata$TASEO_timepoint)
+
+##MUSE - MES I (Cognitive and Emotion Regulation)
+mydata$MESI <- (mydata$MESI1_timepoint + mydata$MESI2_timepoint + mydata$MESI3_timepoint + mydata$MESI4_timepoint + mydata$MESI5_timepoint + mydata$MESI6_timepoint + mydata$MESI7_timepoint)
+
+##MARS negative 
+mydata$MARSN <- (mydata$MARS3_timepoint + mydata$MARS4_timepoint + mydata$MARS5_timepoint + mydata$MARS10_timepoint + mydata$MARS15_timepoint) / 5 
+
+##DERS
+mydata$DERS <- (mydata$DERS1_timepoint + mydata$DERS2_timepoint + mydata$DERS3_timepoint + mydata$DERS4_timepoint + mydata$DERS5_timepoint + mydata$DERS6_timepoint + mydata$DERS7_timepoint + mydata$DERS8_timepoint + mydata$DERS9_timepoint + mydata$DERS10_timepoint + mydata$DERS11_timepoint + mydata$DERS12_timepoint + mydata$DERS13_timepoint + mydata$DERS14_timepoint + mydata$DERS15_timepoint + mydata$DERS16_timepoint)
+
+##Music Ratings
+#Sad Music 
+#Valence
+   mydata$MUVASAD <- (mydata$MUVA31 + mydata$MUVA109) / 2
+#AROUSAL 
+   mydata$MUARSAD <- (mydata$MUAR31 + mydata$MUAR109) / 2
+   
+#Angry music 
+#Valence 
+   mydata$MUVAANGRY <- (mydata$MUVA1 + mydata$MUVA69) / 2
+#AROUSAL
+   mydata$MUARANGRY <- (mydata$MUAR1 + mydata$MUAR69) / 2
+   
+#Fear Music 
+#VALENCE
+   mydata$MUVAFEAR <- (mydata$MUVA11 + mydata$MUVA14) / 2
+#AROUSAL
+   mydata$MUARFEAR <- (mydata$MUAR11 + mydata$MUAR14) / 2
+   
+ #Happy Music 
+ #VALENCE
+     mydata$MUVAHAPPY <- (mydata$MUVA23 + mydata$MUVA105) / 2 
+ #AROUSAL
+     mydata$MUARHAPPY <- (mydata$MUAR23 + mydata$MUAR15) / 2
+ 
+ #Tender music 
+ #VALENCE
+     mydata$MUVAHAPPY <- (mydata$MUVA41 + mydata$MUVA42) / 2 
+ #AROUSAL
+     mydata$MUARHAPPY <- (mydata$MUVA41 + mydata$MUVA42) / 2 
+     
+#Create variable labels 
+var.labels <- c (MESI = "Music for cognitive and emotional regulation", 
+MARSN = "MARS Negative", 
+DERS = "Difficulties in Emotion Regulation", 
+MUVASAD = "rated valence of sad music",
+MUARSAD = "rated arousal of sad music",
+MUVAANGRY = "rated valence of angry music"
+MUARANGRY = "rated arousal of angry music"
+MUVAFEAR = "rated valence of fearful music", 
+MUARFEAR = "rated arousal of fearful music", 
+MUVAHAPPY = "rated valence of happy music",
+MUARHAPPY = "rated arousal of happy music",
+MUVATENDER = "rated valence of tender music",
+MUARTENDER = "rated arousal of tender music",
+MusicExperience1 = "Have you ever played a musical instrument or sung?",
+YearsPlayed = "How many years did/have you sung", 
+HoursListened = "Hours of music listened to per day",
+Genre = "Favourite genre")
+
+mydata <- Hmisc::upData(mydata, labels = var.labels)
+
+#Make and label factors 
+mydata$Gender <- factor(mydata$Gender,
+levels = c(0, 1, 2),
+lables = c("Male", "Female", "Do not identify with either"))
+
+mydata#Ethnicity <- (mydata$e=Ethnicity, 
+levels = c(0, 1, 2, 3),
+labels = c("White/caucasian", "Asian", "Middle Eastern", "Other"))
+
+mydata$MusicExperience1 <- factor (mydata$MusicExperience1,
+levels = c(0, 1)
+lables = c("No", "Yes"))
+
+mydata$Genre <- (mydata$Genre,
+levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15),
+labels = c("Blues", "Jazz", "Classical", "Folk", "Rock", "Alternative", "Heavy Metal", "Country", "Soundtracks", "Religious", "Pop", "Rap/HipHop", "RnB/Soul/Funk", "Electronic/Dance", "Other"))
+
+
+
+                  
