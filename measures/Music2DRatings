@@ -1,0 +1,12 @@
+Rating of music Valence and Arousal, adapted from Chin and Rickard (2017)
+
+Instructions: Please rate the mood of the music you just listened to on the following scale 
+
+Item coding structure
+MUVA_*song*
+-3			0			3
+Negative					Positive 
+
+MUAR_*song*
+-3			0			3
+Low Energy					High Energy
