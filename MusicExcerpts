@@ -1,0 +1,53 @@
+Stimuli and Code for calculating valence and arousal ratings for Musical stimuli taken from Eerola and Vuoskoksi (2011) 
+
+MUVA = VALENCE RATING 
+MUAR = AROUSAL RATING 
+#SAD MUSIC 
+  STIMULI USED 
+    MU31 
+    MU109
+   R CODE 
+   #Valece
+   mydata$MUVASAD <- (mydata$MUVA31 + mydata$MUVA109) / 2
+   #AROUSAL 
+   mydata$MUARSAD <- (mydata$MUAR31 + mydata$MUAR109) / 2
+
+#ANGRY MUSIC 
+  STIMULI USED 
+    MU1
+    MU69
+   R CODE
+   #Valence 
+   mydata$MUVAANGRY <- (mydata$MUVA1 + mydata$MUVA69) / 2
+   #AROUSAL
+   mydata$MUARANGRY <- (mydata$MUAR1 + mydata$MUAR69) / 2
+   
+ #FEAR MUSIC 
+  STIMULI USED
+    MU11
+    MU14
+   R CODE
+   #VALENCE
+   mydata$MUVAFEAR <- (mydata$MUVA11 + mydata$MUVA14) / 2
+   #AROUSAL
+   mydata$MUARFEAR <- (mydata$MUAR11 + mydata$MUAR14) / 2
+   
+   #HAPPY MUSIC 
+    STIMULI 
+      MU23
+      MU105
+     R CODE
+     #VALENCE
+     mydata$MUVAHAPPY <- (mydata$MUVA23 + mydata$MUVA105) / 2 
+     #AROUSAL
+     mydata$MUARHAPPY <- (mydata$MUAR23 + mydata$MUAR15) / 2
+     
+   #TENDER MUSIC 
+    STIMULI 
+      MU41
+      MU42
+     R CODE
+     #VALENCE
+     mydata$MUVAHAPPY <- (mydata$MUVA41 + mydata$MUVA42) / 2 
+     #AROUSAL
+     mydata$MUARHAPPY <- (mydata$MUVA41 + mydata$MUVA42) / 2     
