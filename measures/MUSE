@@ -1,0 +1,37 @@
+Music use Questionnaire (Chin & Rickard 2012)
+
+Index of Music Listening 
+IML1        On average, how often do you listen to music a week 
+IML2        On average, how many hours do you purposefully listen to music a day 
+
+Instructions	Using the scale provided as a guide, indicate how much you agree or disagree with each of the following statements by selecting the corresponding number
+
+Scoring:	  0: Not at all/not applicable to me
+		  1: Strongly disagree 
+	          2: Disagree 
+	          3: Neutral 
+	          4: Agree
+	          5: Strongly Agree 
+MES I (Cognitive and Emotion Regulation) 
+
+MESI1_timepoint	      I often listen to music when I'm feeling down 
+MESI2_timepoint	      Specific types of music make me feel better
+MESI3_timepoint	      Music often takes away tension at the end of the day 
+MESI4_timepoint	      I often listen to new compositions 
+MESI5_timepoint	      I use a particular type of music to get me through tough times 
+MESI6_timepoint	      Music is often a source of inspiration for me 
+MESI7_timepoint	      Certain types of music help me think 
+
+R CODE 
+Cognitive and Emotion Regulation 
+mydata$MESI <- (mydata$MESI1_timepoint + mydata$MESI2_timepoint + mydata$MESI3_timepoint + mydata$MESI4_timepoint + mydata$MESI5_timepoint + mydata$MESI6_timepoint + mydata$MESI7_timepoint)
+
+MES III (Social connection)
+
+MESIII1_timepoint	Having a similar taste in mysic often helps me relate better to my peers
+MESIII2_timepoint	I am able to make more friends when we like the same type of music 
+MESIII3_timepoint	There is a greater connection with my friends when we like the same music 
+
+R CODE 
+Social Connection 
+mydata$MESIII <- (mydata$MESIII1_timepoint + mydata$MESIII2_timepoint + mydata$MESIII3_timepoint)
