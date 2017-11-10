@@ -48,6 +48,6 @@ MUAR = AROUSAL RATING
       MU42
      R CODE
      #VALENCE
-     mydata$MUVAHAPPY <- (mydata$MUVA41 + mydata$MUVA42) / 2 
+     mydata$MUVATENDER <- (mydata$MUVA41 + mydata$MUVA42) / 2 
      #AROUSAL
-     mydata$MUARHAPPY <- (mydata$MUVA41 + mydata$MUVA42) / 2     
+     mydata$MUARTENDER <- (mydata$MUVA41 + mydata$MUVA42) / 2     
