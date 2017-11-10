@@ -1,0 +1,60 @@
+Demographics 
+
+Item                                                                              Responses
+Age                 What is your age in years?                                    18
+                                                                                  19
+                                                                                  20
+                                                                                  21
+                                                                                  22
+                                                                                  23
+                                                                                  24
+                                                                                  25
+                                                          
+Gender              What is your gender                                           Male (0)
+                                                                                  Female (1)
+                                                                                  I do not identify with eitehr of these (2) 
+
+Ethnicity           What is your ethnicity                                        White/caucasian (0)
+                                                                                  Asian (1)
+                                                                                  Middle Eastern (2)
+                                                                                  Other (3)
+                        #If other 
+Ethnicity2          What is yor ethnicity                                         Open response
+
+MusicExperience1    Have you ever played a musical instrument or sung?            Yes (1)
+                                                                                  No  (0)                                                      
+                        #If yes 
+
+HoursListened       How many hours a day do you deliberately listen to music?     0
+                                                                                  1
+                                                                                  2
+                                                                                  3
+                                                                                  4
+                                                                                  5
+                                                                                  6
+                                                                                  7
+                                                                                  8
+                                                                                  9
+                                                                                  10
+                                                                                  
+MusicExperience2    How many years did/have you played or sung for?               Open dropdown (1-20+)
+
+Genre               What is your favourite musical genre                          Blues (1)
+                                                                                  Jazz (2)
+                                                                                  Classical (3)
+                                                                                  Folk (4)
+                                                                                  Rock (5)
+                                                                                  Alternative (6)
+                                                                                  Heavy Metal (7)
+                                                                                  Country (8)
+                                                                                  Soundtracks (9)
+                                                                                  Religious (10)
+                                                                                  Pop (11)
+                                                                                  Rap/Hip-hop (12)
+                                                                                  RnB/Soul/Funk (13)
+                                                                                  Electronic/Dance (14)
+                                                                                  Other (15)
+                           #If other 
+Genre2               What is your favourite musical genre                         Open response     
+
+What is a song you like to listen to when you are sad                             Open response
