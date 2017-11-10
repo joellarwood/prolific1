@@ -1,0 +1,33 @@
+Rumination Reflection Questioniarre (Trapnell & Campbell, 1999)
+
+Scoring:	1: Strongly disagree 
+	        2: Disagree 
+        	3: Neutral 
+        	4: Agree
+	        5: Strongly Agree 
+          
+Instructions: For each of the following statements rate your level of agreement 
+
+Item 
+RUM1	      My attention is often focused on aspects of myself I wish I’d stop thinking about
+RUM2	      I always seem to be rehashing in my mind recent things I’ve said or done.
+RUM3	      Sometimes it is hard for me to shut off thoughts about myself.
+RUM4	      Long after an argument or disagreement is over with, my thoughts keep going back to  what happened
+RUM5	      I tend to “ruminate” or dwell over things that happen to me for a really long time afterward.
+RUM6	      I don’t waste time rethinking things that are over and done with.
+RUM7      	Often I’m playing back over in my mind how I acted in a past situation.
+RUM8	      I often find myself reevaluating something I’ve done.
+RUM9	      I never ruminate or dwell on myself for very long 
+RUM10     	It is easy for me to put unwanted thoughts out of my mind 
+RUM11	      I often reflect on episodes in my life that I should no longer concern myself with.
+RUM12	      I spend a great deal of time thinking back over my embarrassing or disappointing moments.
+
+R CODE 
+#REVERSE SCORING 
+library(car)	
+mydata$RUM6r <- recode (RUM6, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)	
+mydata$RUM9r <- recode (RUM9, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)	
+mydata$RUM10r <- recode (RUM10, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)	
+
+#TOTAL 
+mydata$RUMtotal <- (mydata$RUM1 + mydata$RUM2 + mydata$RUM3 + mydata$RUM4 + mydata$RUM5 + mydata$RUM6r + mydata$RUM7 + mydata$RUM8 + mydata$RUM9r + mydata$RUM10r + mydata$RUM11 + mydata$RUM12)/12
