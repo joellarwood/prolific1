@@ -1,0 +1,36 @@
+Music Affective Response Scale (MARS; Dingle et al, in prep)
+
+Scoring:      1:    Never True 
+              2:    Very rarely true 
+              3:    Seldom true
+              4:    Sometimes true 
+              5:    Frequently true
+              6:    Almost always true 
+              7:    Always true 
+              
+Instructions: Below you will find a list of statements. Please rate the truth of each statement as it applies to you when you listen to music in genreal 
+
+Item                                                                                   Subscale 
+MARS1_timepoint       When I hear music I am drawn to it                                P
+MARS2_timepoint       Music makes me feel happy                                         P
+MARS3_timepoint       I don't really notice music when it's playing                     N
+MARS4_timepoint       I usually switch off the music when I enter a room or a car       N
+MARS5_timepoint       When I'm upset about something music makes me feel worse          N
+MARS6_timepoint       When I hear music I want to sing/hum along                        P
+MARS7_timepoint       Music makes me feel relaxed                                       P
+MARS8_timepoint       I smile when I hear music                                         P
+MARS9_timepoint       I tap my foot when I hear music                                   P
+MARS10_timepoint      Music makes me feel anxious and disturbed                         N
+MARS11_timepoint      When I hear music I want to get up and dance                      P
+MARS12_timepoint      If I'm upset about something music makes me feel better           P
+MARS13_timepoint      I often turn the volume down when music is playing                N
+MARS14_timepoint      I am moved to tears by music                                      P
+MARS15_timepoint      I feel chills when I listen to a moving piece of music            P 
+
+
+R Code 
+#MARS Positive 
+mydata$MARSP <- (mydata$MARS1_timepoint + mydata$MARS2_timepoint + mydata$MARS6_timepoint + mydata$MARS7_timepoint + mydata$MARS8_timepoint + mydata$MARS9_timepoint + mydata$MARS11_timepoint + mydata$MARS12_timepoint + mydata$MARS14_timepoint + mydata$MARS15_timepoint) / 10 
+
+#MARS negative 
+mydata$MARSN <- (mydata$MARS3_timepoint + mydata$MARS4_timepoint + mydata$MARS5_timepoint + mydata$MARS10_timepoint + mydata$MARS15_timepoint) / 5 
