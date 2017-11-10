@@ -1,0 +1,57 @@
+Toronto Alexithymia Scale (TAS) 20 (Bagby, Parker & Taylor, 1994)
+
+Scoring:	1: Strongly disagree 
+	        2: Disagree 
+	        3: Neutral 
+	        4: Agree
+	        5: Strongly Agree 
+   
+Instructions	Using the scale provided as a guide, indicate how much you agree or disagree with each of the following statements by circling the corresponding number
+
+Item      
+TAS1_timepoint	        I am often confused about what emotion I am feeling					DI
+TAS2_timepoint	        It is difficult for me to find the right words for my feelings				DD
+TAS3_timepoint	        I have physical sensations that even doctors don’t understand				DI
+TAS4_timepoint	        I am able to describe my feelings easily 						DD
+TAS5_timepoint	        I prefer to analyse problems rather than just describe them 				EO
+TAS6_timepoint	        When I am upset, I don’t know if I am sad, frightened, or angry 			DI
+TAS7_timepoint	        I am often puzzled by sensations in my body						DI
+TAS8_timepoint	        I prefer to just let things happen than to understand why they turned out that way 	EO
+TAS9_timepoint	        I have feelings that I can’t quite identify 						DI
+TAS10_timepoint	        Being in touch with emotions is essential 						EO
+TAS11_timepoint	        I find it hard to describe how I feel about people					DD
+TAS12_timepoint	        People tell me to describe my feelings more 						DD
+TAS13_timepoint	        I don’t know what’s going on inside me 							DI
+TAS14_timepoint	        I often don’t know why I am angry 							DI
+TAS15_timepoint	        I prefer talking to people about their daily activities rather than their feelings	EO
+TAS16_timepoint	        I prefer to watch ‘light’ entertainment shows rather than psychological dramas		EO
+TAS17_timepoint	        It is difficult for me to reveal my innermost feelings, even to someone close		DD
+TAS18_timepoint	        I can feel close to someone, even in moments of silence					EO
+TAS19_timepoint	        I find examination of my feelings useful in solving personal problems 			EO
+TAS20_timepoint	        Looking for hidden meanings in movies or plays distracts from their enjoyment 		EO
+
+R CODE 
+#Reverse scoring 
+library(car)
+mydata$TAS4r_timepoint <- recode (TAS4_timepoint, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)
+mydata$TAS5r_timepoint <- recode (TAS5_timepoint, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)
+mydata$TAS10r_timepoint <- recode (TAS10_timepoint, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)
+mydata$TAS18r_timepoint <- recode (TAS18_timepoint, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)
+mydata$TAS19r_timepoint <- recode (TAS19_timepoint, 1 = 5 ; 2 = 4 ; 3 = 3 ; 4 = 2 ; 5 = 1)
+
+#Difficulty Identifying Feelings
+mydata$TASDI_timepoint <- (mydata$TAS1_timepoint + mydata$TAS3_timepoint + mydata$TAS6_timepoint + mydata$TAS7 + mydata$TAS9 + mydata$TAS13 + mydata$TAS14) 
+
+#Difficulty Describing Feelings 
+mydata$TASDD_timepoint <- (mydata$TAS2_timepoint + mydata$TAS4_timepoint + mydata$TAS11_timepoint + mydata$TAS12_timepoint + mydata$TAS17_timepoint)
+
+#Externally Oriented thinking 
+mydata$TASEO_timepoint < - (mydata$TAS5_timepoint + mydata$TAS8_timepoint + mydata$TAS10_timepoint + mydata$TAS15_timepoint + mydata$TAS16_timepoint + mydata$TAS18_timepoint + mydata$TAS19_timepoint + mydata$TAS20_timepoint)
+
+#TAS Total 
+TAStotal <- (mydata$TASDD_timepoint + mydata$TASDI_timepoint + mydata$TASEO_timepoint)
+#High and Low Alexithymia 
+mydata$TAScat_timepoint [mydata$TAStotal <= 51] <- 0 
+mydata$TAScat_timepoint [mydata$TAStotal >= 61 <- 2
+mydata$TAScat_timepoint [mydata$TAStotal >51 & mydata$TAStotal < 61] <- 1
+mydata$TAScat_timepoint <- factor (mydata$TAScat, levels = c(0, 1, 2), labels = c("Low Alexithymia", "Uncategorised Alexithymia", "High Alexithymia"))
